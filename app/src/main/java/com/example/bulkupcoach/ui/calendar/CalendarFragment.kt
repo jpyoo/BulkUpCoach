@@ -17,7 +17,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.databinding.DataBindingUtil
 import com.example.bulkupcoach.R
 import com.example.bulkupcoach.databinding.FragmentCalendarBinding
 import com.google.android.gms.common.GoogleApiAvailability
