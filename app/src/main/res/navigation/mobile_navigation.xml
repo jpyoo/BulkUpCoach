@@ -28,4 +28,10 @@
         android:name="com.example.bulkupcoach.ui.calendar.CalendarFragment"
         android:label="@string/title_calendar"
         tools:layout="@layout/fragment_calendar" />
+
+    <fragment
+        android:id="@+id/navigation_protein"
+        android:name="com.example.bulkupcoach.ui.protein.ProteinFragment"
+        android:label="@string/title_protein"
+        tools:layout="@layout/fragment_protein" />
 </navigation>

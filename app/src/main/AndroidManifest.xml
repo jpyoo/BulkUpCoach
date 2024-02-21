@@ -60,6 +60,11 @@
             android:label="CalendarActivity">
         </activity>
 
+        <activity
+            android:name=".ProteinActivity"
+            android:label="ProteinActivity">
+        </activity>
+
     </application>
 
 </manifest>

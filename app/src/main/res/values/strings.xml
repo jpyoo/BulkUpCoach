@@ -9,4 +9,7 @@
          from https://console.developers.google.com/ -->
     <string name="server_client_id">563783968895-nhvi7r8247ms5636j0jnik2bv8s3iiu2.apps.googleusercontent.com</string>
     <string name="dashboard">dashboard</string>
+    <string name="enter_food_query">Enter Food Query</string>
+    <string name="btn_get_protein">Get Protein</string>
+    <string name="title_protein">Protein</string>
 </resources>
