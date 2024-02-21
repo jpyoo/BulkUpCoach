@@ -11,6 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import android.content.Context
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,11 +22,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        Log.d(TAG, "onCreate: Setting up Google Sign-In")
-        Amplify.Auth.fetchAuthSession(
-            { Log.i("AmplifyQuickstart", "Auth session = $it") },
-            { error -> Log.e("AmplifyQuickstart", "Failed to fetch auth session", error) }
-        )
         // Configure Google Sign-In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.server_client_id))
@@ -37,7 +33,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signIn() {
-        Log.d(TAG, "signIn: Starting Google Sign-In intent")
         val signInIntent = mGoogleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
@@ -46,13 +41,12 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RC_SIGN_IN) {
-            Log.d(TAG, "onActivityResult: Google Sign-In result received")
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)
                 handleGoogleSignInResult(account)
             } catch (e: ApiException) {
-                Log.w(TAG, "Google sign in failed", e)
+                Log.w(TAG, "signInResult:failed code=" + e.statusCode)
             }
         }
     }
@@ -69,6 +63,9 @@ class LoginActivity : AppCompatActivity() {
             Log.d(TAG, "handleGoogleSignInResult: email retrieved: $email")
             Log.d(TAG, "handleGoogleSignInResult: displayName retrieved: $displayName")
 
+            // Save account information
+            saveAccountName(email)
+
             // Start DashboardActivity
             startActivity(Intent(this, DashboardActivity::class.java))
             finish()
@@ -76,6 +73,14 @@ class LoginActivity : AppCompatActivity() {
             Log.e(TAG, "handleGoogleSignInResult: Google Sign-In failed, account is null")
             // Handle sign-in failure
         }
+    }
+
+
+    private fun saveAccountName(accountName: String?) {
+        val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("accountName", accountName)
+        editor.apply()
     }
 
     companion object {
