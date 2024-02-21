@@ -161,6 +161,7 @@ class CalendarFragment : Fragment() {
             try {
                 // Call the function to get the calendar list instead of events
                 getCalendarList()
+                getAllCalendars()
             } catch (e: Exception) {
                 mLastError = e
                 lifecycleScope.cancel()
@@ -198,6 +199,118 @@ class CalendarFragment : Fragment() {
             Log.e("Google", "getCalendarList: ${e.message}", e)
         }
     }
+
+    private fun getCalendarData(calendarId: String) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            var mLastError: Exception? = null
+            try {
+                val calendar = mService!!.calendars().get(calendarId).execute()
+
+                // Log calendar details
+                Log.d("CalendarFragment", "=======================================")
+                Log.d("CalendarFragment", "Calendar etag: ${calendar.etag}")
+                Log.d("CalendarFragment", "Calendar id: ${calendar.id}")
+                Log.d("CalendarFragment", "Calendar Summary: ${calendar.summary}")
+                Log.d("CalendarFragment", "Calendar Description: ${calendar.description}")
+                Log.d("CalendarFragment", "Calendar Location: ${calendar.location}")
+                Log.d("CalendarFragment", "Calendar TimeZone: ${calendar.timeZone}")
+                Log.d("CalendarFragment", "=======================================")
+
+                // You can handle other properties similarly
+
+            } catch (e: UserRecoverableAuthIOException) {
+                startActivityForResult(e.intent, REQUEST_AUTHORIZATION)
+            } catch (e: com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException) {
+                showGooglePlayServicesAvailabilityErrorDialog(e.connectionStatusCode)
+            } catch (e: IOException) {
+                Log.e("Google", "getCalendarData: ${e.message}", e)
+            }
+
+            launch(Dispatchers.Main) {
+                mProgress!!.hide()
+                if (mLastError != null) {
+                    handleRequestFailure(mLastError!!)
+                }
+            }
+        }
+    }
+
+
+    private fun getAllCalendars() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            var mLastError: Exception? = null
+            try {
+                val calendarList = mService!!.calendarList().list().execute()
+
+                // Log the calendar details for each calendar in the list
+                for (calendarEntry in calendarList.items) {
+
+                    //Log.d("CalendarFragment", "=======================================")
+                    //Log.d("CalendarFragment", "Calendar etag: ${calendarEntry.etag}")
+                    //Log.d("CalendarFragment", "Calendar id: ${calendarEntry.id}")
+                    //Log.d("CalendarFragment", "Calendar Summary: ${calendarEntry.summary}")
+                    //Log.d("CalendarFragment", "Calendar Description: ${calendarEntry.description}")
+                    //Log.d("CalendarFragment", "Calendar Location: ${calendarEntry.location}")
+                    //Log.d("CalendarFragment", "Calendar TimeZone: ${calendarEntry.timeZone}")
+                    //Log.d("CalendarFragment", "=======================================")
+
+                    getAllEvents(calendarEntry.id)
+                    // You can handle other properties similarly
+                }
+            } catch (e: UserRecoverableAuthIOException) {
+                startActivityForResult(e.intent, REQUEST_AUTHORIZATION)
+            } catch (e: com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException) {
+                showGooglePlayServicesAvailabilityErrorDialog(e.connectionStatusCode)
+            } catch (e: IOException) {
+                Log.e("Google", "getAllCalendars: ${e.message}", e)
+            }
+
+            launch(Dispatchers.Main) {
+                mProgress!!.hide()
+                if (mLastError != null) {
+                    handleRequestFailure(mLastError!!)
+                }
+            }
+        }
+    }
+
+    private fun getAllEvents(calendarId: String) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            var mLastError: Exception? = null
+            try {
+                val events = mService!!.events().list(calendarId).execute().items
+
+                // Log the details of each event
+                for (event in events) {
+                    Log.d("CalendarFragment", "=======================================")
+                    Log.d("CalendarFragment", "Event Summary: ${event.summary}")
+                    Log.d("CalendarFragment", "Event Description: ${event.description}")
+                    Log.d("CalendarFragment", "Event Location: ${event.location}")
+                    Log.d("CalendarFragment", "Event Start: ${event.start.date}")
+                    Log.d("CalendarFragment", "Event Start Time: ${event.start.dateTime}")
+                    Log.d("CalendarFragment", "Event End: ${event.end.date}")
+                    Log.d("CalendarFragment", "Event End Time: ${event.end.dateTime}")
+                    Log.d("CalendarFragment", "=======================================")
+
+                    // You can handle other properties similarly
+                }
+            } catch (e: UserRecoverableAuthIOException) {
+                startActivityForResult(e.intent, REQUEST_AUTHORIZATION)
+            } catch (e: com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException) {
+                showGooglePlayServicesAvailabilityErrorDialog(e.connectionStatusCode)
+            } catch (e: IOException) {
+                Log.e("Google", "getAllEvents: ${e.message}", e)
+            }
+
+            launch(Dispatchers.Main) {
+                mProgress!!.hide()
+                if (mLastError != null) {
+                    handleRequestFailure(mLastError!!)
+                }
+            }
+        }
+    }
+
 
     private fun handleRequestFailure(exception: Exception) {
         if (exception is UserRecoverableAuthIOException) {
