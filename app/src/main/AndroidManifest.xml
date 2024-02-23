@@ -13,6 +13,40 @@
         android:theme="@style/Theme.BulkUpCoach"
         tools:targetApi="31">
         <activity
+            android:name=".DetailWorkout"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_workout2"
+            android:theme="@style/Theme.BulkUpCoach" />
+        <activity
+            android:name=".SleepContent"
+            android:exported="false" />
+        <activity
+            android:name=".SleepActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProteinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.UserActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user"
+            android:theme="@style/Theme.BulkUpCoach" />
+        <activity
+            android:name=".MainActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
@@ -22,11 +56,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
-            android:label="LoginActivity">
-        </activity>
+            android:label="LoginActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -3,4 +3,13 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="title_activity_workout">WorkoutActivity</string>
+    <string name="title_activity_protein">ProteinActivity</string>
+    <string name="title_activity_sleep">SleepActivity</string>
+    <string name="title_activity_workout2">WorkoutActivity2</string>
+
+    <string name="workout">A bench press machine is for training the pectoral muscles of the body. It also involves triceps, front shoulder,
+        and other skeletal muscles while performing this exercise.</string>
+
 </resources>
