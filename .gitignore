@@ -14,6 +14,19 @@
 .cxx
 local.properties
 
+
+*.jar
+.tmp/
+/amplify/
+caches/
+daemon/
+jdks/
+/native/
+/wrapper/
+/gradle/
+/.idea/
+/app/src/main/java/com/amplifyframework/datastore/generated/model/
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -35,15 +48,3 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
-
-*.jar
-.tmp/
-/amplify/
-caches/
-daemon/
-jdks/
-/native/
-/wrapper/
-/gradle/
-/.idea/
-/app/src/main/java/com/amplifyframework/datastore/generated/model/

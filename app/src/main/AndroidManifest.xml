@@ -13,6 +13,16 @@
         android:theme="@style/Theme.BulkUpCoach"
         tools:targetApi="31">
         <activity
+            android:name=".SecondActivity"
+            android:exported="false"
+            android:label="@string/title_activity_second"
+            android:theme="@style/Theme.BulkUpCoach" />
+        <activity
+            android:name=".settingsPage"
+            android:exported="false"
+            android:label="@string/title_activity_settings_page"
+            android:theme="@style/Theme.BulkUpCoach" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
@@ -22,11 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
-            android:label="LoginActivity">
-        </activity>
+            android:label="LoginActivity" />
     </application>
 
 </manifest>
