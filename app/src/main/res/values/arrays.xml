@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="exercise_types">
+        <item>ARNOLD_PRESS</item>
+        <item>BACK_EXTENSION</item>
+        <item>ARNOLD_PRESS</item>
+        <item>BACK_EXTENSION</item>
+        <item>BENCH_PRESS</item>
+        <item>BICEP_CURL</item>
+        <item>BURPEE</item>
+        <item>CALF_PRESS</item>
+        <item>CALF_RAISE</item>
+        <item>CHEST_DIP</item>
+        <item>CHINUP</item>
+        <item>CLEAN</item>
+        <item>CLEAN_JERK</item>
+        <item>CLOSE_GRIP_BENCH_PRESS</item>
+        <item>CLOSE_GRIP_PUSHUP</item>
+        <item>CRUNCH</item>
+        <item>DEADLIFT</item>
+        <item>DECLINE_BENCH_PRESS</item>
+        <item>DIP</item>
+        <item>FLY</item>
+        <item>FRONT_RAISE</item>
+        <item>GOOD_MORNING</item>
+        <item>HANG_CLEAN</item>
+        <item>HANG_POWER_CLEAN</item>
+        <item>HIGH_KNEE_RUN</item>
+        <item>HIGH_ROW</item>
+        <item>HIP_EXTENSION</item>
+        <item>HIP_RAISE</item>
+        <item>HIP_THRUST</item>
+        <item>INCLINE_BENCH_PRESS</item>
+        <item>JM_PRESS</item>
+        <item>JUMPING_JACK</item>
+        <item>LATERAL_RAISE</item>
+        <item>LEG_CURL</item>
+        <item>LEG_EXTENSION</item>
+        <item>LEG_PRESS</item>
+        <item>LEG_RAISE</item>
+        <item>LUNGE</item>
+        <item>MILITARY_PRESS</item>
+        <item>PIKE_PRESS</item>
+        <item>PIKE_PUSHUP</item>
+        <item>PLANK</item>
+        <item>POWER_CLEAN</item>
+        <item>PULLDOWN</item>
+        <item>PULLOVER</item>
+        <item>PULLUP</item>
+        <item>PUSHUP</item>
+        <item>RDL_DEADLIFT</item>
+        <item>REAR_LATERAL_RAISE</item>
+        <item>REAR_LUNGE</item>
+        <item>ROW</item>
+        <item>RUSSIAN_TWIST</item>
+        <item>SEATED_CALF_RAISE</item>
+        <item>SHOULDER_PRESS</item>
+        <item>SHRUG</item>
+        <item>SIDE_LUNGE</item>
+        <item>SIDE_PLANK</item>
+        <item>SINGLE_LEG_DEADLIFT</item>
+        <item>SINGLE_LEG_HIP_BRIDGE</item>
+        <item>SITUP</item>
+        <item>SQUAT</item>
+        <item>STANDING_CALF_RAISE</item>
+        <item>STEP_UP</item>
+        <item>STRAIGHT_LEG_DEADLIFT</item>
+        <item>SWING</item>
+        <item>THRUSTER</item>
+        <item>TRICEPS_DIP</item>
+        <item>TRICEPS_EXTENSION</item>
+        <item>TWISTING_CRUNCH</item>
+        <item>TWISTING_SITUP</item>
+        <item>UPRIGHT_ROW</item>
+        <item>V_UPS</item>
+        <item>WALL_SIT</item>
+        <!-- Add more exercise types as needed -->
+    </string-array>
+
+    <string-array name="resistance_types">
+        <item>RESISTANCE_TYPE_UNKNOWN</item>
+        <item>RESISTANCE_TYPE_BARBELL</item>
+        <item>RESISTANCE_TYPE_CABLE</item>
+        <item>RESISTANCE_TYPE_DUMBBELL</item>
+        <item>RESISTANCE_TYPE_KETTLEBELL</item>
+        <item>RESISTANCE_TYPE_MACHINE</item>
+        <item>RESISTANCE_TYPE_BODY</item>
+
+        <!-- Add more resistance types as needed -->
+    </string-array>
+</resources>

@@ -12,4 +12,8 @@
     <string name="enter_food_query">Enter Food Query</string>
     <string name="btn_get_protein">Get Protein</string>
     <string name="title_protein">Protein</string>
+    <string name="insert_workout_exercise">Insert Workout Exercise</string>
+    <string name="resistance_kg">Resistance (kg)</string>
+    <string name="duration_milliseconds">Duration (milliseconds)</string>
+    <string name="repetitions">Repetitions</string>
 </resources>
